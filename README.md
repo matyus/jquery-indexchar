@@ -1,5 +1,7 @@
 #jQuery.indexChar();
 
+[![Build Status](https://travis-ci.org/matyus/jquery-indexchar.svg)](https://travis-ci.org/matyus/jquery-indexchar)
+
 Give it a character, match it against an alphabet.
 
     var index = $.indexChar('A');
