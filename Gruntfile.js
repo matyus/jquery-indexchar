@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
@@ -11,13 +10,34 @@ module.exports = function(grunt) {
         src: 'src/<%= pkg.name %>.js',
         dest: 'build/<%= pkg.name %>.min.js'
       }
+    },
+    qunit: {
+      all: {
+        options: {
+          urls: [
+            'http://localhost:8000/test/jquery-indexchar.test.html'
+          ]
+        }
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: '.'
+        }
+      }
     }
+
   });
 
-  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-connect');
+
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Default task(s).
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+
   grunt.registerTask('default', ['uglify']);
 
+  grunt.registerTask('test',['connect','qunit']);
 };

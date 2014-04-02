@@ -1,17 +1,25 @@
 (function($){
-  $.charIndex = function(str,opts){
+  $.indexChar = function(str,opts){
+  if(typeof(str) === 'number') {
+    return undefined;
+  }
+
   //if default setting is a number, it must be the Index Character
   if(typeof(opts) === 'number') {
+    if(str.length <= opts) {
+      return undefined;
+    }
+
     opts = {indexChar:opts};
   }
 
-  var settings = $.extend({}, $.charIndex.defaults, opts),
+  var settings = $.extend({}, $.indexChar.defaults, opts),
       glyph    = str.charAt(settings.indexChar).toUpperCase();
 
     return settings.scale.indexOf(glyph);
   };
 
-  $.charIndex.defaults = {
+  $.indexChar.defaults = {
     indexChar: 0,
     scale    :'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   };
