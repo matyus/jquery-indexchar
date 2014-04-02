@@ -16,7 +16,11 @@ If you want a different alphabet, or something, you can alter the default, or pa
 
     $.fn.indexChar.defaults = 'THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG';
 
+    var index = $.indexChar('B');
+    // 8
+
 ###Pass it in
 
     var index = $.indexChar('A',{scale: 'DCBDA'});
     // 4
+
