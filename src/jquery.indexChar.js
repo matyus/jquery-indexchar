@@ -16,6 +16,8 @@
   var settings = $.extend({}, $.indexChar.defaults, opts),
       glyph    = str.charAt(settings.indexChar).toUpperCase();
 
+      settings.scale = settings.scale.toUpperCase();
+
     return settings.scale.indexOf(glyph);
   };
 
